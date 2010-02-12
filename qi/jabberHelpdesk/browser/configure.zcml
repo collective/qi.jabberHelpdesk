@@ -1,0 +1,168 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="qi.jabberHelpdesk">
+
+    <include package=".portlets"/>
+
+    <browser:page
+        for="*"
+        name="helpdesk_xmlrpc"
+        class=".xmlrpc.HelpdeskXMLRPC"
+        permission="zope2.View"
+        allowed_interface="..interfaces.IMessageHandler"
+        />
+
+    <browser:page
+        for="*"
+        name="helpdesk_settings"
+        class=".helpdeskSettings.HelpdeskSettings"
+        permission="zope2.View"
+        allowed_interface="..interfaces.IHelpdeskSettings"
+        />
+
+    <browser:resourceDirectory
+        name="qi.jabberHelpdesk.smileys"
+        directory="resources/smileys"
+        />
+        
+    <browser:resourceDirectory
+        name="qi.jabberHelpdesk.corners"
+        directory="resources/corners"
+        />
+        
+    <browser:resourceDirectory
+        name="qi.jabberHelpdesk.kss"
+        directory="resources/kss"
+        />
+
+    <browser:resource
+        name="qi.jabberHelpdesk.icon.gif"
+        image="resources/helpdesk.gif"
+        />
+
+    <browser:resource
+        name="qi.jabberHelpdesk.css"
+        file="resources/helpdesk.css"
+        />
+
+    <browser:page
+        for="..interfaces.IHelpdesk"
+        name="chatView"
+        class=".chatView.ChatView"
+        permission="qi.jabberHelpdesk.UseHelpdesk"
+        />
+
+    <browser:page
+        for="zope.app.container.interfaces.IAdding"
+        name="qi.jabberHelpdesk.Helpdesk"
+        class=".helpdesk.HelpdeskAddForm"
+        permission="qi.jabberHelpdesk.AddHelpdesk"
+        />
+        
+    <browser:page
+        for="..interfaces.IHelpdesk"
+        name="edit"
+        class=".helpdesk.HelpdeskEditForm"
+        permission="cmf.ModifyPortalContent"
+        />
+    <browser:page
+        for="..interfaces.IHelpdesk"
+        name="agents"
+        class=".agents.HelpdeskAgentsEditForm"
+        permission="cmf.ModifyPortalContent"
+        />
+        
+    <browser:addMenuItem
+        title="Jabber Helpdesk"
+        factory="qi.jabberHelpdesk.Helpdesk"
+        view="qi.jabberHelpdesk.Helpdesk"
+        permission="qi.jabberHelpdesk.AddHelpdesk"
+        />
+
+
+    <!-- Chat request view -->
+    <adapter
+        for=".chatRequest.ChatRequestView"
+        factory=".chatRequest.chatRequestFormView"
+        name="default"
+        provides="zope.formlib.namedtemplate.INamedTemplate"
+        />
+    
+    <browser:page
+        for="..interfaces.IHelpdesk"
+        name="view"
+        class=".chatRequest.ChatRequestView"
+        permission="qi.jabberHelpdesk.UseHelpdesk"
+        />
+
+    <!-- File download -->
+
+    <browser:page
+        for="..interfaces.IHelpdesk"
+        name="fileDownload"
+        class=".fileDownload.FileDownloadView"
+        permission="qi.jabberHelpdesk.UseHelpdesk"
+        />
+    
+    <!-- KSS registrations -->
+    <browser:page
+        for="..interfaces.IHelpdesk"
+        class=".HelpdeskKSSView.HelpdeskKSSView"
+        name="helpdesk_login"
+        attribute="login"
+        permission="zope2.View"
+    />    
+
+    <browser:page
+        for="..interfaces.IHelpdesk"
+        class=".HelpdeskKSSView.HelpdeskKSSView"
+        name="helpdesk_logout"
+        attribute="logout"
+        permission="zope2.View"
+    />    
+
+    <browser:page
+        for="..interfaces.IHelpdesk"
+        class=".HelpdeskKSSView.HelpdeskKSSView"
+        name="helpdesk_ping"
+        attribute="ping"
+        permission="zope2.View"
+    />
+
+    <browser:page
+        for="..interfaces.IHelpdesk"
+        class=".HelpdeskKSSView.HelpdeskKSSView"
+        name="helpdesk_downloadChat"
+        attribute="downloadChat"
+        permission="zope2.View"
+    />
+
+    <browser:page
+        for="..interfaces.IHelpdesk"
+        class=".HelpdeskKSSView.HelpdeskKSSView"
+        name="helpdesk_avatar"
+        attribute="avatar"
+        permission="zope2.View"
+    />
+
+    <browser:page
+        for="..interfaces.IHelpdesk"
+        class=".HelpdeskKSSView.HelpdeskKSSView"
+        name="helpdesk_refreshAvailableAgents"
+        attribute="refreshAvailableAgents"
+        permission="zope2.View"
+    />
+
+    <!-- Control panel-->
+    <adapter
+      factory=".helpdeskSettings.HelpdeskControlPanelAdapter" />
+
+    <browser:page
+        name="helpdesk-settings-controlpanel"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".helpdeskSettings.HelpdeskControlPanel"
+        permission="cmf.ManagePortal"
+        />
+    
+</configure>

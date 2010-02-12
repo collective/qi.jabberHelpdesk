@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="qi.jabberHelpdesk">
+<head>
+    <metal:noborder fill-slot="top_slot"
+       tal:define="dummy python:request.set('disable_border',1)" />
+</head>
+<body>
+
+ 
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+        <form name="userData" >
+            <input name="userName" tal:attributes="value python: here.REQUEST.get('name') or 'Anonymous'" type="hidden"/>
+            <input name="subject" tal:attributes="value python: here.REQUEST.get('subject') or ''" type="hidden"/>
+        </form>
+        <div id="jabberHelpdeskAgentDetails">
+        </div>
+        <div id="jabberHelpdeskMessages">
+        </div>
+        <div id="chatbloxpowered">
+            <span i18n:translate="label_powered_by">Powered by</span>
+            
+            <a href="http://chatblox.com" title="chatblox.com">qi.jabberHelpdesk
+            </a>
+        </div>
+
+        <div id="jabberHelpdeskMsgBox">
+            <div class="formHelp" i18n:translate="help_messageBox">Enter the message you want to post below. Links and emoticons are allowed.</div>
+            <label for="jabberHelpdeskMsgInput" i18n:translate="label_msgInput">Message</label>
+            <input type="text" id="jabberHelpdeskMsgInput" value=""/>
+        </div>
+        <a id="jabberHelpdeskDownChat1" href="#" >Request chat transcript</a>
+    </tal:main-macro>
+</metal:main>
+</body>
+</html>
+

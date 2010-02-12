@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="qi.jabberHelpdesk: Add helpdesk" acquire="False">
+        <role name="Manager" />
+    </permission>
+
+    <permission name="qi.jabberHelpdesk: Use helpdesk" acquire="False">
+        <role name="Anonymous" />
+        <role name="Member" />
+        <role name="Manager" />
+    </permission>
+  </permissions>
+</rolemap>

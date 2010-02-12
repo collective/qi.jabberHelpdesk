@@ -1,0 +1,9 @@
+<div i18n:domain="qi.jabberHelpdesk" class="portlet-helpdesk">
+    <a href="" tal:attributes="href view/helpdeskLink" i18n:translate="link_helpdeskPortlet">
+        <img src="" tal:attributes="src string: ${view/helpdeskImage}/image_mini" title="Chat with us live!" />
+    </a>
+    <center>
+        <label i18n:translate="label_availableAgents">Available agents:</label>
+        <span id="jabberHelpdeskAvailableAgents" tal:content="view/availableAgents"/>
+    </center>
+</div>

@@ -1,0 +1,17 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+          <genericsetup:upgradeSteps
+             profile="qi.jabberHelpdesk:default"
+             source="0.12"
+             destination="1">
+
+            <genericsetup:upgradeStep
+               handler=".upgrades.updateResourceRegistrations"
+               title="Update resource registrations"
+               description=""
+               />
+
+          </genericsetup:upgradeSteps>
+
+</configure>

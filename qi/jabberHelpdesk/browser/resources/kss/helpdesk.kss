@@ -1,0 +1,42 @@
+#jabberHelpdeskMessages:load {
+    action-server: helpdesk_login;
+    helpdesk_login-userName: formVar(userData,userName);
+    helpdesk_login-subject: formVar(userData,subject);
+    
+}
+#jabberHelpdeskMsgInput:keyup {
+  evt-keyup-keycodes: 13;
+  action-server: helpdesk_ping;
+  helpdesk_ping-userID: stateVar(helpdesk-userID);
+  helpdesk_ping-lastMsgFrom: stateVar(helpdesk-lastMsgFrom);
+  helpdesk_ping-message: currentFormVar();
+  helpdesk_ping-userName: formVar(userData,userName);
+}
+#jabberHelpdeskMessages:timeout {
+    evt-timeout-delay: 3000;
+    action-server: helpdesk_ping;
+    helpdesk_ping-userID: stateVar(helpdesk-userID);
+    helpdesk_ping-lastMsgFrom: stateVar(helpdesk-lastMsgFrom);
+}
+
+#jabberHelpdeskMessages:jh-onbeforeunload {
+    action-server: helpdesk_logout;
+    helpdesk_logout-userID: stateVar(helpdesk-userID);
+}
+
+#jabberHelpdeskAvailableAgents:timeout {
+    evt-timeout-delay: 3000;
+    action-server: helpdesk_refreshAvailableAgents;
+}
+
+#jabberHelpdeskDownChat1:click {
+    evt-click-preventdefault: True;
+    action-server: helpdesk_downloadChat;
+    helpdesk_downloadChat-userID: stateVar(helpdesk-userID)
+}
+
+#jabberHelpdeskDownChat2:click {
+
+    action-client: replaceHTML;
+    replaceHTML-html: '<a id="jabberHelpdeskDownChat1" href="#" >Request chat transcript</a>';
+}

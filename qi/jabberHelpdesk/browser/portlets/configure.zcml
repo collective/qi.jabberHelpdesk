@@ -1,0 +1,18 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:plone="http://namespaces.plone.org/plone"
+           i18n_domain="qi.jabberHelpdesk">
+
+
+    <plone:portlet
+        name="portlets.helpdeskPortlet"
+        interface=".helpdeskPortlet.IHelpdeskPortlet"
+        assignment=".helpdeskPortlet.Assignment"
+        renderer=".helpdeskPortlet.Renderer"
+        addview=".helpdeskPortlet.AddForm"
+        editview=".helpdeskPortlet.EditForm"
+        view_permission="qi.jabberHelpdesk.UseHelpdesk"
+        edit_permission="cmf.ManagePortal"
+        />
+
+</configure>

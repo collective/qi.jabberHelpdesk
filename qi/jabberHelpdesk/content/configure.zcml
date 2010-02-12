@@ -1,0 +1,21 @@
+<configure
+	xmlns="http://namespaces.zope.org/zope"
+	xmlns:five="http://namespaces.zope.org/five" 
+	i18n_domain="qi.jabberHelpdesk">  
+
+	<five:registerClass
+		class=".helpdesk.Helpdesk"
+		meta_type="Jabber Helpdesk"
+		permission="qi.jabberHelpdesk.AddHelpdesk"
+		addview="qi.jabberHelpdesk.Helpdesk"
+		icon="qi.jabberHelpdesk.icon.gif"
+		/>
+	
+	<adapter factory=".adapters.HelpdeskAgentsEditor" />
+	
+	<utility
+		component=".helpdesk.helpdeskFactory"
+		name="qi.jabberHelpdesk.Helpdesk"
+		/>
+
+</configure>

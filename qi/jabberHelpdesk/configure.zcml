@@ -1,0 +1,33 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five" 
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="qi.jabberHelpdesk">
+
+    <five:registerPackage package="." initialize=".initialize" />
+
+    <permission
+        id="qi.jabberHelpdesk.UseHelpdesk"
+        title="qi.jabberHelpdesk: Use helpdesk"
+        />
+
+    <permission
+        id="qi.jabberHelpdesk.AddHelpdesk"
+        title="qi.jabberHelpdesk: Add helpdesk"
+        />
+
+    <include package=".content" />
+    <include package=".browser" /> 
+    <include package=".kss" />
+
+    <genericsetup:registerProfile
+      name="default"
+      title="qi's jabber based helpdesk"
+      directory="profiles/default"
+      description="Extension profile for qi.jabberHelpdesk."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+    <include file="upgrades.zcml" />
+
+</configure>

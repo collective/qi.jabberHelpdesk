@@ -1,0 +1,112 @@
+#jabberHelpdeskMessages {
+    border:1px solid #EEEEEE;
+    height: 25em;
+    padding:0;
+    overflow: auto;
+/* Needed for IE */
+    position:relative;
+}
+
+#jabberHelpdeskAgentDetails {
+    clear: both;
+    margin:1em;
+}
+
+#agentAvatar {
+    float: left;
+    clear: right;
+    height:64px;
+    margin-right:1em;
+}
+
+.msgCont {
+    border: 0px;
+    background: #F3F3F3;
+    margin: 1em;
+}
+
+.msgHead {
+    position: relative!important;
+    font-size: 110%;
+    padding: 0em 1em;
+    line-height: 1.6em;
+    height:8px;
+}
+.msgHead span.tile {
+    display: block;
+    float: right;
+}
+
+.msgFoot {
+    position: relative!important;
+    padding:0em;
+    margin:0em;
+    height:14px;
+}
+.msgTL {
+    background: transparent url(++resource++qi.jabberHelpdesk.corners/tl.png) top left no-repeat !important;
+    background: #f3f3f3;
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    border: none;
+    left: 0px;
+    top: 0px;
+}
+
+.msgTR {
+    background: transparent url(++resource++qi.jabberHelpdesk.corners/tr.png) top right no-repeat !important;
+    background: #f3f3f3;
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    border: none;
+    right: 0px;
+    top: 0px;
+}
+
+.msgBL {
+    background: transparent url(++resource++qi.jabberHelpdesk.corners/bl.png) bottom left no-repeat !important;
+    background: #f3f3f3;
+    position: absolute;
+    height: 14px;
+    width: 8px;
+    border: none;
+    left: 0px;
+    bottom: 0px;
+}
+
+.msgBR {
+    background: transparent url(++resource++qi.jabberHelpdesk.corners/br.png) bottom right no-repeat !important;
+    background: #f3f3f3;
+    position: absolute;
+    height: 14px;
+    width: 8px;
+    border: none;
+    right: 0px;
+    bottom: 0px;
+}
+
+.msgCont dd {
+    color: #777777;
+    margin-bottom:0.3em;
+}
+#jabberHelpdeskMsgBox {
+    margin-top: 2em;
+}
+
+#jabberHelpdeskMsgBox input {
+    width: 75%; 
+}
+#chatbloxpowered {
+    float: right;
+    clear: both;
+}
+#chatbloxpowered a {
+    font-size:16px;
+    color:#666666;
+    text-decoration:none;
+}
+#chatbloxpowered img {
+    margin-bottom:1px;
+}

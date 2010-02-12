@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object name="portal_properties" meta_type="Plone Properties Tool">
+ <object name="helpdesk_properties" meta_type="Plone Property Sheet" purge="False">
+  <property name="title">qi.JabberHelpdesk Properties</property>
+
+  <property name="xmlrpc_host" type="string" purge="False">localhost</property>
+  <property name="xmlrpc_port" type="string">6667</property>
+
+ </object>
+</object>

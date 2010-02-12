@@ -1,0 +1,33 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:kss="http://namespaces.zope.org/kss"
+    xmlns:five="http://namespaces.zope.org/five">
+    
+    <kss:action
+        name="jh_resetScrollbar"
+        jsfile="resetScrollbar.js"
+        command_factory="selector"
+        params_mandatory="" 
+        params_optional=""
+        />
+
+    <kss:action
+        name="jh_resetInput"
+        jsfile="resetInput.js"
+        command_factory="selector"
+        params_mandatory="" 
+        params_optional=""
+        />
+
+    <kss:commandset name="jabberHelpdesk"
+        for="kss.core.interfaces.IKSSView"
+        provides=".IJabberHelpdeskKSSCommands.IJabberHelpdeskKSSCommands"
+        class=".JabberHelpdeskKSSCommands.JabberHelpdeskKSSCommands" 
+        />
+        
+    <kss:eventtype
+        name="jh-onbeforeunload"
+        jsfile="beforeunload.js"
+        />
+</configure>

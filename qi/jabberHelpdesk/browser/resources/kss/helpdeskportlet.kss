@@ -1,0 +1,11 @@
+.portlet-helpdesk:load {
+    action-client: setStateVar;
+    setStateVar-varname: 'portletHelpdeskHash';
+    setStateVar-value: kssAttr(portlethash,True);
+}
+body:timeout {
+    evt-timeout-delay: 10000;
+    action-server: refreshPortlet;
+    refreshPortlet-portlethash: stateVar('portletHelpdeskHash');
+}
+

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<portlets xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+	i18n:domain="qi.jabberHelpdesk">
+ <portlet 
+   addview="portlets.helpdeskPortlet"
+   title="Helpdesk portlet"
+   description="This portlet lets people ask for online support from the helpdesk."
+   i18n:attributes="title title_helpdesk_portlet;
+                    description description_helpdesk_portlet"
+
+   for="plone.app.portlets.interfaces.IColumn"
+   />
+
+</portlets>

@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+xmlns:tal="http://xml.zope.org/namespaces/tal"
+xmlns:metal="http://xml.zope.org/namespaces/metal"
+xmlns:i18n="http://xml.zope.org/namespaces/i18n" lang="en"
+metal:use-macro="here/main_template/macros/master"
+i18n:domain="qi.jabberHelpdesk">
+  <body>
+    <metal:main metal:fill-slot="main">
+      <tal:main-macro metal:define-macro="main">
+    <dl id="kssPortalMessage" class="portalMessage info" style="display: block;">
+    <dt>Info</dt>
+    <dd i18n:translate="label_waitingForAgents">Please wait while checking for available agents...</dd>
+    </dl>
+        <div metal:use-macro="context/@@base-pageform.html/macros/form">
+            <div id="availableAgentsCont" metal:fill-slot="extra_info" tal:define="availableAgents view/availableAgents" >
+                <div>
+                    <label i18n:translate="label_availableAgents">Available agents:</label>
+                    <span id="jabberHelpdeskAvailableAgents" tal:content="python: availableAgents[0]"/>
+                </div>
+                <div>
+                    <label i18n:translate="label_onlineAgents">Online agents:</label>
+                    <span id="jabberHelpdeskOnlineAgents" tal:content="python: availableAgents[1]"/>
+                </div>
+            </div>
+        </div>
+      </tal:main-macro>
+    </metal:main>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+Changelog for qi.jabberHelpdesk
+
+qi.jabberHelpdesk - 0.22
+  - Changed name field to accept UTF8 characters. Thanks to Geir Baekholt for spotting this.
+
+qi.jabberHelpdesk - 0.21
+  - Fixed portlet issue with UberSelectionWidget. Credits to Graham Perrin for reporting it. Fixes http://plone.org/products/qi-jabberhelpdesk/issues/7 [ggozad]
+
+qi.jabberHelpdesk - 0.20
+  - Added the possibility to download chat transcripts. [ggozad]
+  - Improved error handling. [ggozad]
+  - Broke down css and kss resources so that they can be easily overriden. [ggozad]
+  - Added upgrade steps for Generic Setup. [ggozad]
+
+qi.jabberHelpdesk - 0.13
+  - The user is presented with the message "No available agents" when no agents are available and tries to connect. Fixes http://plone.org/products/qi-jabberhelpdesk/issues/3 [ggozad]
+  - Improved the chat request screen for logged in members [ggozad]
+  - Fixed conflict with qi.jabberHelpdesk. Fixes http://plone.org/products/qi-jabberhelpdesk/issues/2 [ggozad]
+
+qi.jabberHelpdesk - 0.12
+  - Forced all links that appear in the chat window to open in new windows. [ggozad]
+  - Added "Please wait while checking for available agents..." message while checking with xmlrpc server. [ggozad]
+
+qi.jabberHelpdesk - 0.11
+  - Fixed portlet, and added image field to it. [ggozad]
+
+qi.jabberHelpdesk - 0.1 Unreleased
+
+  - Initial package structure. [zopeskel]
+
