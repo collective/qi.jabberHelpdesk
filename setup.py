@@ -1,15 +1,13 @@
 from setuptools import setup, find_packages
-from os.path import join
+import os
 
 version = '0.22'
-readme = open('README.txt').read()
-history = open(join('docs', 'HISTORY.txt')).read()
 
 setup(name='qi.jabberHelpdesk',
       version=version,
       description="An online helpdesk product for plone",
-      long_description=readme[readme.find('\n\n'):] + '\n' + history,
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
+      long_description=open("README.txt").read() + "\n" +
+                       open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
       'Environment :: Web Environment',
       'Framework :: Plone',
@@ -19,7 +17,7 @@ setup(name='qi.jabberHelpdesk',
       'Programming Language :: Python',
       'Topic :: Software Development :: Libraries :: Python Modules',      
         ],
-      keywords='plone jabber helpdesk',
+      keywords='plone,jabber,helpdesk',
       author='G. Gozadinos',
       author_email='ggozad@qiweb.net',
       url='http://github.com/ggozad/qi.jabberHelpdesk',
@@ -33,6 +31,7 @@ setup(name='qi.jabberHelpdesk',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
-      # -*- Entry points: -*-
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
       )
