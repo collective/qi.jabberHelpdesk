@@ -1,7 +1,10 @@
 Changelog for qi.jabberHelpdesk
 
+qi.jabberHelpdesk - 0.30
+  - Security fixes, some vulnerable xml-rpc calls fixed. [ggozad]
+
 qi.jabberHelpdesk - 0.22
-  - Changed name field to accept UTF8 characters. Thanks to Geir Baekholt for spotting this.
+  - Changed name field to accept UTF8 characters. Thanks to Geir Baekholt for spotting this. [ggozad]
 
 qi.jabberHelpdesk - 0.21
   - Fixed portlet issue with UberSelectionWidget. Credits to Graham Perrin for reporting it. Fixes http://plone.org/products/qi-jabberhelpdesk/issues/7 [ggozad]
