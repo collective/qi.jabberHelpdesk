@@ -10,11 +10,15 @@ class HelpdeskAgentsEditor(object):
     
     def __init__(self, context):
         self.context = context
-        self.mh = getMultiAdapter((self.context,self.context.request),name="helpdesk_xmlrpc")
-        self.mh.loadBot(self.context.botJid,self.context.botPassword,self.context.persistent)
+        self.mh = getMultiAdapter((self.context,self.context.request),
+                                  name="helpdesk_xmlrpc")
+        self.mh.loadBot(self.context.botJid,
+                        self.context.botPassword,
+                        self.context.persistent)
     
     def _setAgents(self, value):
-        oldAgents = self.mh.getHelpdeskAgents(self.context.botJid)
+        oldAgents = self.mh.getHelpdeskAgents(self.context.botJid,
+                                              self.context.passwordHash())
         toRemove = [agent for agent in oldAgents if agent not in value]
         toAdd = [agent for agent in value if agent not in oldAgents]
         for agent in toRemove:
@@ -23,6 +27,7 @@ class HelpdeskAgentsEditor(object):
             self.mh.addAgent(self.context.botJid,agent)
     
     def _getAgents(self):
-        return self.mh.getHelpdeskAgents(self.context.botJid)
+        return self.mh.getHelpdeskAgents(self.context.botJid,
+                                         self.context.passwordHash())
     
     agentJids = property(_getAgents, _setAgents)

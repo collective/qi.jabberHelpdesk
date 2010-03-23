@@ -56,10 +56,10 @@ class HelpdeskXMLRPC(BrowserView):
         """
         return self.rpcserver.getAvailableContacts(botID,passhash)
     
-    def getHelpdeskAgents(self,botJID):
+    def getHelpdeskAgents(self,botJID,passhash):
         """
         """
-        return self.rpcserver.getContacts(botJID)
+        return self.rpcserver.getContacts(botJID,passhash)
     
     def getAgentAvatarB64(self,botID,userID):
         """
