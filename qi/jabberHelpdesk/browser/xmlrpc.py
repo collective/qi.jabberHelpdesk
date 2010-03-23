@@ -81,15 +81,15 @@ class HelpdeskXMLRPC(BrowserView):
         """
         return self.rpcserver.loadBot(botID,botPass,persistent)
     
-    def addAgent(self,botJID,agentId):
+    def addAgent(self,botJID,agentId,passhash):
         """
         """
-        return self.rpcserver.addContact(botJID,agentId)
+        return self.rpcserver.addContact(botJID,agentId,passhash)
     
-    def removeAgent(self,botJID,agentId):
+    def removeAgent(self,botJID,agentId,passhash):
         """
         """
-        return self.rpcserver.delContact(botJID,agentId)
+        return self.rpcserver.delContact(botJID,agentId,passhash)
     
     def addBot(self,botJID,botPass):
         """

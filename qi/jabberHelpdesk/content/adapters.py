@@ -17,14 +17,15 @@ class HelpdeskAgentsEditor(object):
                         self.context.persistent)
     
     def _setAgents(self, value):
-        oldAgents = self.mh.getHelpdeskAgents(self.context.botJid,
-                                              self.context.passwordHash())
+        botJid = self.context.botJid
+        passHash = self.context.passwordHash()
+        oldAgents = self.mh.getHelpdeskAgents(botJid,passHash)
         toRemove = [agent for agent in oldAgents if agent not in value]
         toAdd = [agent for agent in value if agent not in oldAgents]
         for agent in toRemove:
-            self.mh.removeAgent(self.context.botJid,agent)
+            self.mh.removeAgent(botJid,passHash,agent)
         for agent in toAdd:
-            self.mh.addAgent(self.context.botJid,agent)
+            self.mh.addAgent(botJid,passHash,agent)
     
     def _getAgents(self):
         return self.mh.getHelpdeskAgents(self.context.botJid,
