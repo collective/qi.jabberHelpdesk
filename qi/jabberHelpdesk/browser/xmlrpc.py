@@ -1,10 +1,8 @@
+from xmlrpclib import Server
 from zope.interface import implements
 from zope.component import getMultiAdapter
-
-from qi.jabberHelpdesk.interfaces import IMessageHandler
-#from zope.component import getUtility
-from xmlrpclib import Server
 from Products.Five.browser import BrowserView
+from qi.jabberHelpdesk.interfaces import IMessageHandler
 
 class HelpdeskXMLRPC(BrowserView):
     """
@@ -15,8 +13,10 @@ class HelpdeskXMLRPC(BrowserView):
         """ init view """
         self.context = context
         self.request = request
-        settings =  getMultiAdapter((context,request), name="helpdesk_settings")
-        self.rpcserver = Server('http://%s:%i'%(settings.xmlrpc_host,settings.xmlrpc_port))
+        settings =  getMultiAdapter((context,request),
+            name="helpdesk_settings")
+        self.rpcserver = Server('http://%s:%i' % 
+            (settings.xmlrpc_host,settings.xmlrpc_port))
     
     def userLogin(self,botID,userID,name,subject):
         """
@@ -46,20 +46,20 @@ class HelpdeskXMLRPC(BrowserView):
             return [messages,files]
         raise Exception("You have been disconnected")
     
-    def getAliveAgents(self,botID):
+    def getAliveAgents(self,botID,passhash):
         """
         """
-        return self.rpcserver.getAliveContacts(botID)
+        return self.rpcserver.getAliveContacts(botID,passhash)
     
-    def getAvailableAgents(self,botID):
+    def getAvailableAgents(self,botID,passhash):
         """
         """
-        return self.rpcserver.getAvailableContacts(botID)
+        return self.rpcserver.getAvailableContacts(botID,passhash)
     
-    def getHelpdeskAgents(self,botJID):
+    def getHelpdeskAgents(self,botJID,passhash):
         """
         """
-        return self.rpcserver.getContacts(botJID)
+        return self.rpcserver.getContacts(botJID,passhash)
     
     def getAgentAvatarB64(self,botID,userID):
         """
@@ -81,15 +81,15 @@ class HelpdeskXMLRPC(BrowserView):
         """
         return self.rpcserver.loadBot(botID,botPass,persistent)
     
-    def addAgent(self,botJID,agentId):
+    def addAgent(self,botJID,agentId,passhash):
         """
         """
-        return self.rpcserver.addContact(botJID,agentId)
+        return self.rpcserver.addContact(botJID,agentId,passhash)
     
-    def removeAgent(self,botJID,agentId):
+    def removeAgent(self,botJID,agentId,passhash):
         """
         """
-        return self.rpcserver.delContact(botJID,agentId)
+        return self.rpcserver.delContact(botJID,agentId,passhash)
     
     def addBot(self,botJID,botPass):
         """

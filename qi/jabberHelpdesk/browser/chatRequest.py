@@ -39,11 +39,12 @@ class ChatRequestView(formbase.PageForm):
     
     def availableAgents(self):
         try:
-            if self.mh.loadBot(self.context.botJid,
-                               self.context.botPassword,
-                               self.context.persistent):
-                return (len(self.mh.getAvailableAgents(self.context.botJid)),
-                        len(self.mh.getAliveAgents(self.context.botJid)),)
+            botJid = self.context.botJid
+            botPass = self.context.botPassword
+            passHash = self.context.passwordHash()
+            if self.mh.loadBot(botJid,botPass,self.context.persistent):
+                return (len(self.mh.getAvailableAgents(botJid,passHash)),
+                        len(self.mh.getAliveAgents(botJid,passHash)),)
             return (0,0)
         except:
             logger.error("Could not connect to bot:%s"%self.context.botJid)
@@ -51,8 +52,10 @@ class ChatRequestView(formbase.PageForm):
     
     @property
     def form_fields(self):
-        """ Note to self: I setup form_fields here as inside __init__ there is no security context and I cannot get the authenticated member.
-            I also set form_fields as a @property in order for it to be instantiated after the form creation.
+        """ Note to self: I setup form_fields here as inside __init__ there is 
+        no security context and I cannot get the authenticated member.
+        I also set form_fields as a @property in order for it to be 
+        instantiated after the form creation.
         """
         membership = getToolByName(self.context, 'portal_membership')
         self.memberName = None

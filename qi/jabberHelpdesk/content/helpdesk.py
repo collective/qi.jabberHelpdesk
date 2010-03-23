@@ -1,3 +1,4 @@
+import md5
 from zope.interface import implements
 
 from zope.component.factory import Factory
@@ -17,5 +18,10 @@ class Helpdesk(Item):
     
     def __init__(self,id=None):
         super(Helpdesk,self).__init__(id)
+    
+    def passwordHash(self):
+        """Returns a hash for the bot's password.
+        """
+        return md5.new(self.botPassword).hexdigest()
 
 helpdeskFactory = Factory(Helpdesk, title=_(u"Create a new jabber helpdesk"))

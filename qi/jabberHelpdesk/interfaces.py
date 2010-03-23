@@ -92,11 +92,11 @@ class IMessageHandler(Interface):
         """
         """
     
-    def getAvailableAgents(botID):
+    def getAvailableAgents(botID,passHash):
         """
         """
     
-    def getHelpdeskAgents(botID):
+    def getHelpdeskAgents(botID,passHash):
         """
         """
     
@@ -112,11 +112,11 @@ class IMessageHandler(Interface):
         """
         """
     
-    def addAgent(botID,botPass):
+    def addAgent(botID,botPass,passHash):
         """
         """
     
-    def addBot(self,botJID,botPass):
+    def addBot(self,botJID,botPass,passHash):
         """
         """
     

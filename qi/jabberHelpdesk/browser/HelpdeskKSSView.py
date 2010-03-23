@@ -25,6 +25,7 @@ class HelpdeskKSSView(PloneKSSView):
         self.mh = getMultiAdapter((self.context,self.request),
                                   name="helpdesk_xmlrpc")
         self.botJid = self.context.botJid
+        self.passHash = self.context.passwordHash()
     
     def login(self,userName,subject):
         """
@@ -89,8 +90,9 @@ class HelpdeskKSSView(PloneKSSView):
         return binary
     
     def refreshAvailableAgents(self):
-        aagents = self.mh.getAvailableAgents(self.botJid)
-        oagents = self.mh.getAliveAgents(self.botJid)
+        
+        aagents = self.mh.getAvailableAgents(self.botJid,self.passHash)
+        oagents = self.mh.getAliveAgents(self.botJid,self.passHash)
         aaElem = self.core.getHtmlIdSelector("jabberHelpdeskAvailableAgents")
         oaElem = self.core.getHtmlIdSelector("jabberHelpdeskOnlineAgents")
         self.core.replaceInnerHTML(aaElem,str(len(aagents)))
