@@ -68,8 +68,11 @@ class Renderer(base.Renderer):
         """
         """
         try:
-            if self.mh.loadBot(self.helpdesk.botJid,self.helpdesk.botPassword,self.helpdesk.persistent):
-                return len(self.mh.getAvailableAgents(self.helpdesk.botJid))
+            if self.mh.loadBot(self.helpdesk.botJid,
+                               self.helpdesk.botPassword,
+                               self.helpdesk.persistent):
+                return len(self.mh.getAvailableAgents(self.helpdesk.botJid,
+                                                      self.helpdesk.digest()))
             return 0
         except:
             return 0
