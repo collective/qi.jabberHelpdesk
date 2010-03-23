@@ -90,19 +90,3 @@ class HelpdeskXMLRPC(BrowserView):
         """
         """
         return self.rpcserver.delContact(botJID,agentId,passhash)
-    
-    def addBot(self,botJID,botPass):
-        """
-        """
-        return self.rpcserver.addUser(botJID,botPass)
-    
-    def removeBot(self,botJID):
-        """
-        """
-        return self.rpcserver.delUser(botJID)
-    
-    def sendAnnouncement(self,bodyList):
-        """
-        """
-        return self.rpcserver.sendAnnouncement(bodyList)
-        

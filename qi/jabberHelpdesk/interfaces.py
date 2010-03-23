@@ -75,51 +75,36 @@ class IMessageHandler(Interface):
     def userLogin(botID,user,name,subject):
         """
         """
-    
     def userLogout(botID,user):
         """
         """
-    
     def sendUserMessage(botID,user,message):
         """
         """
-    
     def getUserMessages(botID,user):
         """
         """
-    
     def getAliveAgents(botID):
         """
         """
-    
     def getAvailableAgents(botID,passHash):
         """
         """
-    
     def getHelpdeskAgents(botID,passHash):
         """
         """
-    
     def getAgentAvatarB64(botID):
         """
         """
-    
     def getAgentVCard(botID,userID):
         """
         """
-    
     def loadBot(botID,botPass,persistent):
         """
         """
-    
     def addAgent(botID,botPass,passHash):
         """
         """
-    
-    def addBot(self,botJID,botPass,passHash):
-        """
-        """
-    
-    def removeBot(self,botJID):
+    def removeAgent(botID,botPass,passHash):
         """
         """
