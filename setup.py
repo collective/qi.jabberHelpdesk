@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.22'
+version = '0.30'
 
 setup(name='qi.jabberHelpdesk',
       version=version,
@@ -28,7 +28,6 @@ setup(name='qi.jabberHelpdesk',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          # -*- Extra requirements: -*-
       ],
       entry_points="""
       [z3c.autoinclude.plugin]
