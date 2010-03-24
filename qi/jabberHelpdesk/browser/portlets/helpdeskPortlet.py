@@ -71,8 +71,10 @@ class Renderer(base.Renderer):
             if self.mh.loadBot(self.helpdesk.botJid,
                                self.helpdesk.botPassword,
                                self.helpdesk.persistent):
-                return len(self.mh.getAvailableAgents(self.helpdesk.botJid,
-                                                      self.helpdesk.digest()))
+                available = self.mh.getAvailableAgents(
+                    self.helpdesk.botJid,
+                    self.helpdesk.passwordHash()) 
+                return len(available)
             return 0
         except:
             return 0
