@@ -15,6 +15,3 @@ class ChatView(BrowserView):
         """Simply return the template
         """
         return self.template()
-    
-    
-    
