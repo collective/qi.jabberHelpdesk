@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.30'
+version = '0.40'
 
 setup(name='qi.jabberHelpdesk',
       version=version,
