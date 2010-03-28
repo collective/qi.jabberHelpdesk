@@ -11,6 +11,7 @@ class JHelpdeskLayer(PloneSite):
         fiveconfigure.debug_mode = True
         import qi.jabberHelpdesk
         zcml.load_config('configure.zcml', qi.jabberHelpdesk)
+        zcml.load_config('overrides.zcml', qi.jabberHelpdesk.tests)
         fiveconfigure.debug_mode = False    
         installPackage('qi.jabberHelpdesk',quiet=True)
         # import the default profile
